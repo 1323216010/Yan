@@ -1,0 +1,16 @@
+# 项目排除路径
+/yan-api/yan-api-system/target/
+/yan-auth/target/
+/yan-common/yan-common-core/target/
+/yan-common/yan-common-datascope/target/
+/yan-common/yan-common-datasource/target/
+/yan-common/yan-common-log/target/
+/yan-common/yan-common-redis/target/
+/yan-common/yan-common-security/target/
+/yan-common/yan-common-swagger/target/
+/yan-gateway/target/
+/yan-modules/yan-file/target/
+/yan-modules/yan-gen/target/
+/yan-modules/yan-job/target/
+/yan-modules/yan-system/target/
+/yan-visual/yan-monitor/target/

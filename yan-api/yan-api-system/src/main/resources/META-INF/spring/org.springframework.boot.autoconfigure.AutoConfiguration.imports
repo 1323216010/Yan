@@ -1,0 +1,3 @@
+com.yan.system.api.factory.RemoteUserFallbackFactory
+com.yan.system.api.factory.RemoteLogFallbackFactory
+com.yan.system.api.factory.RemoteFileFallbackFactory

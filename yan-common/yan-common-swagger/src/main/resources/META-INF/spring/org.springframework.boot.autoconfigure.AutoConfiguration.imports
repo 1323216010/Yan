@@ -1,0 +1,3 @@
+com.yan.common.swagger.config.SwaggerAutoConfiguration
+com.yan.common.swagger.config.SwaggerWebConfiguration
+com.yan.common.swagger.config.SwaggerBeanPostProcessor

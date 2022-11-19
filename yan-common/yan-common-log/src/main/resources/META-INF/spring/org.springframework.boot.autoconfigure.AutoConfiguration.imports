@@ -1,0 +1,2 @@
+com.yan.common.log.service.AsyncLogService
+com.yan.common.log.aspect.LogAspect

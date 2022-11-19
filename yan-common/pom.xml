@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.yan</groupId>
+        <artifactId>yan</artifactId>
+        <version>3.6.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>yan-common-log</module>
+        <module>yan-common-core</module>
+        <module>yan-common-redis</module>
+        <module>yan-common-seata</module>
+        <module>yan-common-swagger</module>
+        <module>yan-common-security</module>
+        <module>yan-common-datascope</module>
+        <module>yan-common-datasource</module>
+    </modules>
+
+    <artifactId>yan-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        yan-common通用模块
+    </description>
+
+</project>
