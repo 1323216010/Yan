@@ -8,6 +8,7 @@ import com.yan.common.core.utils.DateUtils;
 import com.yan.files.config.StaticVariables;
 import com.yan.files.utils.StaticGetPrivate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.yan.files.mapper.FileReviewMapper;
 import com.yan.files.domain.FileReview;
@@ -37,6 +38,8 @@ public class FileReviewServiceImpl implements IFileReviewService
         return fileReviewMapper.selectFileReviewById(id);
     }
 
+    @Value("${kkFile.address}")
+    private String kkAddres;
     /**
      * 查询文件预览列表
      * 
@@ -88,7 +91,7 @@ public class FileReviewServiceImpl implements IFileReviewService
             FileReview fileReview = fileReviewMapper.selectFileReviewById(ids[i]);
             Map<String,Object> map = new HashMap<>();
             map.put("fileName",fileReview.getName());
-            StaticGetPrivate.getTemplates().getForObject(StaticVariables.fileDelete + "?fileName={fileName}",String.class,map);
+            StaticGetPrivate.getTemplates().getForObject(kkAddres + "/deleteFile" + "?fileName={fileName}",String.class,map);
         }
         return fileReviewMapper.deleteFileReviewByIds(ids);
     }

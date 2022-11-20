@@ -28,6 +28,5 @@ spring:
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-
 kkFile:
   address: http://111.230.194.21:8012
