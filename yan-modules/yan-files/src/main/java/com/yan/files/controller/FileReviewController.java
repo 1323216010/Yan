@@ -1,17 +1,11 @@
 package com.yan.files.controller;
 
+
 import java.util.List;
-import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.yan.common.log.annotation.Log;
 import com.yan.common.log.enums.BusinessType;
 import com.yan.common.security.annotation.RequiresPermissions;
@@ -21,6 +15,7 @@ import com.yan.common.core.web.controller.BaseController;
 import com.yan.common.core.web.domain.AjaxResult;
 import com.yan.common.core.utils.poi.ExcelUtil;
 import com.yan.common.core.web.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 文件预览Controller
@@ -102,4 +97,12 @@ public class FileReviewController extends BaseController
     {
         return toAjax(fileReviewService.deleteFileReviewByIds(ids));
     }
+
+    @RequiresPermissions("files:review:add")
+    @ApiOperation("文件上传")
+    @PostMapping("fileUpload")
+    public AjaxResult fileUpload(@RequestParam("file") MultipartFile file) {
+        return toAjax(fileReviewService.fileUpload(file));
+    }
+
 }

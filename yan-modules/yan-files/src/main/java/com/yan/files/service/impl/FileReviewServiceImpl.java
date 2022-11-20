@@ -1,18 +1,30 @@
 package com.yan.files.service.impl;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.yan.common.core.utils.DateUtils;
+import com.yan.common.security.utils.SecurityUtils;
 import com.yan.files.config.StaticVariables;
+import com.yan.files.utils.MethodUtils;
 import com.yan.files.utils.StaticGetPrivate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import com.yan.files.mapper.FileReviewMapper;
 import com.yan.files.domain.FileReview;
 import com.yan.files.service.IFileReviewService;
+import org.springframework.util.Base64Utils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 文件预览Service业务层处理
@@ -25,6 +37,12 @@ public class FileReviewServiceImpl implements IFileReviewService
 {
     @Autowired
     private FileReviewMapper fileReviewMapper;
+
+    private static final Charset DEFAULT_CHARSET;
+
+    static {
+        DEFAULT_CHARSET = StandardCharsets.UTF_8;
+    }
 
     /**
      * 查询文件预览
@@ -106,5 +124,28 @@ public class FileReviewServiceImpl implements IFileReviewService
     public int deleteFileReviewById(Long id)
     {
         return fileReviewMapper.deleteFileReviewById(id);
+    }
+
+    @Override
+    public int fileUpload(MultipartFile file) {
+        String url = kkAddres + "/demo/";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        LinkedMultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
+        params.add("file", file.getResource());
+        HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<MultiValueMap<String, Object>>(params, headers);
+        StaticGetPrivate.getTemplates().exchange(url, HttpMethod.POST, requestEntity, String.class);
+
+        FileReview fileReview = new FileReview();
+        fileReview.setUserName(SecurityUtils.getUsername());
+        fileReview.setTitle(MethodUtils.getFileTitle(file.getOriginalFilename()));
+        fileReview.setName(file.getOriginalFilename());
+        fileReview.setVolume(MethodUtils.getFileSize(String.valueOf(file.getSize())));
+        fileReview.setType(MethodUtils.getFileType(file.getOriginalFilename()));
+        String url0 = StaticVariables.path + file.getOriginalFilename();
+        url0 = new String(Base64Utils.encode(url0.getBytes(DEFAULT_CHARSET)), StandardCharsets.UTF_8);
+        fileReview.setUrl(MethodUtils.stringToUrl(url0));
+
+        return fileReviewMapper.insertFileReview(fileReview);
     }
 }
