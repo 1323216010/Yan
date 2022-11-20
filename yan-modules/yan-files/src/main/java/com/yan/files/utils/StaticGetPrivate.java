@@ -19,9 +19,6 @@ public class StaticGetPrivate {
     @Resource
     private RestTemplate restTemplate;
 
-    @Resource
-    private JavaMailSender javaMailSender;
-
     @Value("${spring.mail.username}")
     private String emailFrom;
 
@@ -32,16 +29,11 @@ public class StaticGetPrivate {
     public void init() {
         staticGetPrivate = this;
         staticGetPrivate.restTemplate = this.restTemplate;
-        staticGetPrivate.javaMailSender = this.javaMailSender;
         staticGetPrivate.emailFrom = this.emailFrom;
     }
 
     public static RestTemplate getTemplates() {
         return staticGetPrivate.restTemplate;
-    }
-
-    public static JavaMailSender getMailSender() {
-        return staticGetPrivate.javaMailSender;
     }
 
     public static String getEmailFrom() {

@@ -10,6 +10,11 @@ spring:
   profiles:
     # 环境配置
     active: dev
+  mail:
+    host: smtp.qq.com  # 发送邮件的服务器地址
+    username: 1909484942@qq.com # 登录qq邮箱的账号
+    password: hpyvmbppfrzmeegi # 开启 IMAP/SMTP服务 获得的授权码
+    default-encoding: UTF-8
   cloud:
     nacos:
       discovery:
@@ -23,3 +28,6 @@ spring:
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+kkFile:
+  address: http://111.230.194.21:8012
