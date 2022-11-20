@@ -1,7 +1,12 @@
 package com.yan.files.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import com.yan.common.core.utils.DateUtils;
+import com.yan.files.config.StaticVariables;
+import com.yan.files.utils.StaticGetPrivate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yan.files.mapper.FileReviewMapper;
@@ -79,6 +84,12 @@ public class FileReviewServiceImpl implements IFileReviewService
     @Override
     public int deleteFileReviewByIds(Long[] ids)
     {
+        for (int i = 0; i < ids.length; i++) {
+            FileReview fileReview = fileReviewMapper.selectFileReviewById(ids[i]);
+            Map<String,Object> map = new HashMap<>();
+            map.put("fileName",fileReview.getName());
+            StaticGetPrivate.getTemplates().getForObject(StaticVariables.fileDelete + "?fileName={fileName}",String.class,map);
+        }
         return fileReviewMapper.deleteFileReviewByIds(ids);
     }
 
