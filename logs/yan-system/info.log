@@ -234,3 +234,24 @@
 14:25:52.184 [lettuce-nioEventLoop-4-5] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to 139.9.92.208/<unresolved>:6379
 14:30:52.258 [lettuce-eventExecutorLoop-1-16] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was /139.9.92.208:6379
 14:30:52.422 [lettuce-nioEventLoop-4-6] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to 139.9.92.208/<unresolved>:6379
+14:35:52.450 [lettuce-eventExecutorLoop-1-7] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was /139.9.92.208:6379
+14:35:52.657 [lettuce-nioEventLoop-4-7] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to 139.9.92.208/<unresolved>:6379
+14:37:08.044 [lettuce-eventExecutorLoop-1-8] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was /139.9.92.208:6379
+14:37:10.985 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Server healthy check fail, currentConnection = 1668924796328_39.171.222.166_4967
+14:37:10.985 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Try to reconnect to a new server, server is  not appointed, will choose a random server.
+14:37:13.243 [lettuce-eventExecutorLoop-1-9] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was 139.9.92.208/<unresolved>:6379
+14:37:13.377 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [013a5a28-d0bd-441b-9e3e-45772ae8ca78_config-0] Server healthy check fail, currentConnection = 1668924634573_39.171.222.166_5115
+14:37:13.378 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [013a5a28-d0bd-441b-9e3e-45772ae8ca78_config-0] Try to reconnect to a new server, server is  not appointed, will choose a random server.
+14:37:16.394 [lettuce-nioEventLoop-4-9] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to 139.9.92.208/<unresolved>:6379
+14:37:16.557 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Success to connect a server [139.9.92.208:8848], connectionId = 1668926231123_39.171.222.166_15355
+14:37:16.558 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Abandon prev connection, server is 139.9.92.208:8848, connectionId is 1668924796328_39.171.222.166_4967
+14:37:16.558 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [closeConnection,591] - Close current connection 1668924796328_39.171.222.166_4967
+14:37:16.559 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Notify disconnected event to listeners
+14:37:16.560 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Notify connected event to listeners.
+14:37:16.774 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [013a5a28-d0bd-441b-9e3e-45772ae8ca78_config-0] Success to connect a server [139.9.92.208:8848], connectionId = 1668926231314_39.171.222.166_15374
+14:37:16.774 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [013a5a28-d0bd-441b-9e3e-45772ae8ca78_config-0] Abandon prev connection, server is 139.9.92.208:8848, connectionId is 1668924634573_39.171.222.166_5115
+14:37:16.774 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [closeConnection,591] - Close current connection 1668924634573_39.171.222.166_5115
+14:37:16.777 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [013a5a28-d0bd-441b-9e3e-45772ae8ca78_config-0] Notify disconnected event to listeners
+14:37:16.777 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [013a5a28-d0bd-441b-9e3e-45772ae8ca78_config-0] Notify connected event to listeners.
+14:37:17.984 [nacos-grpc-client-executor-342] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Receive server push request, request = NotifySubscriberRequest, requestId = 324
+14:37:17.985 [nacos-grpc-client-executor-342] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [caf8cd83-464a-45d4-8c62-88b924635978] Ack server push request, request = NotifySubscriberRequest, requestId = 324

@@ -229,3 +229,23 @@
 14:30:23.443 [lettuce-nioEventLoop-4-8] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to 139.9.92.208/<unresolved>:6379
 14:34:13.983 [lettuce-eventExecutorLoop-1-12] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was /139.9.92.208:6379
 14:34:14.150 [lettuce-nioEventLoop-4-9] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to 139.9.92.208/<unresolved>:6379
+14:35:23.470 [lettuce-eventExecutorLoop-1-13] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was /139.9.92.208:6379
+14:35:23.562 [lettuce-nioEventLoop-4-10] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to 139.9.92.208/<unresolved>:6379
+14:37:12.545 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Server healthy check fail, currentConnection = 1668924635686_39.171.222.166_4887
+14:37:12.546 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Try to reconnect to a new server, server is  not appointed, will choose a random server.
+14:37:15.624 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [e2a7a1c9-69e1-4254-98bd-30f4b782cd28_config-0] Server healthy check fail, currentConnection = 1668924631662_39.171.222.166_5111
+14:37:15.625 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [e2a7a1c9-69e1-4254-98bd-30f4b782cd28_config-0] Try to reconnect to a new server, server is  not appointed, will choose a random server.
+14:37:16.898 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [e2a7a1c9-69e1-4254-98bd-30f4b782cd28_config-0] Success to connect a server [139.9.92.208:8848], connectionId = 1668926231456_39.171.222.166_15377
+14:37:16.898 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [e2a7a1c9-69e1-4254-98bd-30f4b782cd28_config-0] Abandon prev connection, server is 139.9.92.208:8848, connectionId is 1668924631662_39.171.222.166_5111
+14:37:16.898 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [closeConnection,591] - Close current connection 1668924631662_39.171.222.166_5111
+14:37:16.899 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [e2a7a1c9-69e1-4254-98bd-30f4b782cd28_config-0] Notify disconnected event to listeners
+14:37:16.899 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [e2a7a1c9-69e1-4254-98bd-30f4b782cd28_config-0] Notify connected event to listeners.
+14:37:17.022 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Success to connect a server [139.9.92.208:8848], connectionId = 1668926231567_39.171.222.166_15378
+14:37:17.022 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Abandon prev connection, server is 139.9.92.208:8848, connectionId is 1668924635686_39.171.222.166_4887
+14:37:17.022 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [closeConnection,591] - Close current connection 1668924635686_39.171.222.166_4887
+14:37:17.024 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Notify disconnected event to listeners
+14:37:17.026 [com.alibaba.nacos.client.remote.worker] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Notify connected event to listeners.
+14:37:17.984 [nacos-grpc-client-executor-338] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Receive server push request, request = NotifySubscriberRequest, requestId = 322
+14:37:17.984 [nacos-grpc-client-executor-338] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Ack server push request, request = NotifySubscriberRequest, requestId = 322
+14:37:18.284 [nacos-grpc-client-executor-339] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Receive server push request, request = NotifySubscriberRequest, requestId = 326
+14:37:18.286 [nacos-grpc-client-executor-339] INFO  c.a.n.c.r.client - [printIfInfoEnabled,60] - [11ee10e9-b68f-42e3-af08-3db27a0969d7] Ack server push request, request = NotifySubscriberRequest, requestId = 326
