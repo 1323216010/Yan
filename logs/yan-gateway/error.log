@@ -3,3 +3,15 @@
 00:16:09.212 [boundedElastic-9] ERROR c.a.n.c.r.client - [printIfErrorEnabled,99] - Send request fail, request = ServiceListRequest{headers={}, requestId='null'}, retryTimes = 0, errorMessage = java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: Channel shutdownNow invoked
 00:16:09.212 [boundedElastic-4] ERROR c.a.n.c.r.client - [printIfErrorEnabled,99] - Send request fail, request = ServiceListRequest{headers={}, requestId='null'}, retryTimes = 0, errorMessage = java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: Channel shutdownNow invoked
 00:16:09.241 [com.alibaba.nacos.client.naming.updater.3] ERROR c.a.n.c.r.client - [printIfErrorEnabled,99] - Send request fail, request = ServiceQueryRequest{headers={app=unknown}, requestId='null'}, retryTimes = 0, errorMessage = Client not connected, current status:UNHEALTHY
+00:49:47.616 [reactor-http-nio-10] ERROR c.y.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo
+09:34:10.106 [reactor-http-nio-6] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/system/menu/2006,异常信息:Redis exception; nested exception is io.lettuce.core.RedisException: java.net.SocketException: Connection reset
+09:49:16.368 [boundedElastic-4] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/code/gen/list,异常信息:503 SERVICE_UNAVAILABLE "Unable to find instance for yan-gen"
+09:49:17.710 [boundedElastic-9] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/code/gen/list,异常信息:503 SERVICE_UNAVAILABLE "Unable to find instance for yan-gen"
+09:55:16.349 [reactor-http-nio-13] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/system/menu/list,异常信息:Redis exception; nested exception is io.lettuce.core.RedisException: java.net.SocketException: Connection reset
+09:55:39.106 [reactor-http-nio-3] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/,异常信息:404 NOT_FOUND
+09:55:39.161 [reactor-http-nio-3] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/favicon.ico,异常信息:404 NOT_FOUND
+10:07:29.980 [reactor-http-nio-11] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/system/dict/type/optionselect,异常信息:Redis exception; nested exception is io.lettuce.core.RedisException: java.net.SocketException: Connection reset
+10:18:52.671 [boundedElastic-3] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/file/review/list,异常信息:503 SERVICE_UNAVAILABLE "Unable to find instance for yan-file"
+10:43:56.960 [reactor-http-nio-5] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/system/menu/list,异常信息:Redis exception; nested exception is io.lettuce.core.RedisException: java.net.SocketException: Connection reset
+11:20:13.786 [reactor-http-nio-11] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/files/review/list,异常信息:404 NOT_FOUND
+11:24:21.038 [reactor-http-nio-15] ERROR c.y.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/files/review/list,异常信息:404 NOT_FOUND

@@ -13,6 +13,7 @@
         <module>yan-gen</module>
         <module>yan-job</module>
         <module>yan-file</module>
+        <module>yan-files</module>
     </modules>
 
     <artifactId>yan-modules</artifactId>

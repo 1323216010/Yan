@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yan.files.mapper.FileReviewMapper">
+    
+    <resultMap type="FileReview" id="FileReviewResult">
+        <result property="id"    column="id"    />
+        <result property="path"    column="path"    />
+        <result property="name"    column="name"    />
+        <result property="type"    column="type"    />
+        <result property="url"    column="url"    />
+        <result property="userName"    column="user_name"    />
+        <result property="secret"    column="secret"    />
+        <result property="title"    column="title"    />
+        <result property="star"    column="star"    />
+        <result property="author"    column="author"    />
+        <result property="info"    column="info"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="volume"    column="volume"    />
+    </resultMap>
+
+    <sql id="selectFileReviewVo">
+        select id, path, name, type, url, user_name, secret, title, star, author, info, avatar, create_time, update_time, volume from file_review
+    </sql>
+
+    <select id="selectFileReviewList" parameterType="FileReview" resultMap="FileReviewResult">
+        <include refid="selectFileReviewVo"/>
+        <where>  
+            <if test="path != null  and path != ''"> and path = #{path}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="secret != null  and secret != ''"> and secret = #{secret}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="star != null  and star != ''"> and star = #{star}</if>
+            <if test="author != null  and author != ''"> and author = #{author}</if>
+            <if test="info != null  and info != ''"> and info = #{info}</if>
+            <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
+            <if test="volume != null  and volume != ''"> and volume = #{volume}</if>
+        </where>
+    </select>
+    
+    <select id="selectFileReviewById" parameterType="Long" resultMap="FileReviewResult">
+        <include refid="selectFileReviewVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertFileReview" parameterType="FileReview" useGeneratedKeys="true" keyProperty="id">
+        insert into file_review
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="path != null">path,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="type != null and type != ''">type,</if>
+            <if test="url != null">url,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="secret != null">secret,</if>
+            <if test="title != null">title,</if>
+            <if test="star != null">star,</if>
+            <if test="author != null">author,</if>
+            <if test="info != null">info,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="volume != null">volume,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="path != null">#{path},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="type != null and type != ''">#{type},</if>
+            <if test="url != null">#{url},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="secret != null">#{secret},</if>
+            <if test="title != null">#{title},</if>
+            <if test="star != null">#{star},</if>
+            <if test="author != null">#{author},</if>
+            <if test="info != null">#{info},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="volume != null">#{volume},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFileReview" parameterType="FileReview">
+        update file_review
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="path != null">path = #{path},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="url != null">url = #{url},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="secret != null">secret = #{secret},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="star != null">star = #{star},</if>
+            <if test="author != null">author = #{author},</if>
+            <if test="info != null">info = #{info},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="volume != null">volume = #{volume},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteFileReviewById" parameterType="Long">
+        delete from file_review where id = #{id}
+    </delete>
+
+    <delete id="deleteFileReviewByIds" parameterType="String">
+        delete from file_review where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,4 @@
+09:57:35.829 [http-nio-9202-exec-9] ERROR c.y.c.s.h.GlobalExceptionHandler - [handleNotPermissionException,37] - 请求地址'/gen/list',权限码校验失败'tool:gen:list'
+10:07:49.365 [http-nio-9202-exec-1] ERROR c.y.c.s.h.GlobalExceptionHandler - [handleNotPermissionException,37] - 请求地址'/gen/6',权限码校验失败'tool:gen:query'
+10:07:49.543 [http-nio-9202-exec-2] ERROR c.y.c.s.h.GlobalExceptionHandler - [handleNotPermissionException,37] - 请求地址'/gen/6',权限码校验失败'tool:gen:query'
+10:47:40.440 [http-nio-9202-exec-8] ERROR c.y.c.s.h.GlobalExceptionHandler - [handleNotPermissionException,37] - 请求地址'/gen/list',权限码校验失败'tool:gen:list'
