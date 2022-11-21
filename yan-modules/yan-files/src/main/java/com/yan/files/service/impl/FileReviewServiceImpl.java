@@ -128,7 +128,7 @@ public class FileReviewServiceImpl implements IFileReviewService
 
     @Override
     public int fileUpload(MultipartFile file) {
-        String url = kkAddres + "/demo/";
+        String url = kkAddres + "/fileUpload";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         LinkedMultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
@@ -142,7 +142,7 @@ public class FileReviewServiceImpl implements IFileReviewService
         fileReview.setName(file.getOriginalFilename());
         fileReview.setVolume(MethodUtils.getFileSize(String.valueOf(file.getSize())));
         fileReview.setType(MethodUtils.getFileType(file.getOriginalFilename()));
-        String url0 = StaticVariables.path + file.getOriginalFilename();
+        String url0 = kkAddres + "/demo/" + file.getOriginalFilename();
         url0 = new String(Base64Utils.encode(url0.getBytes(DEFAULT_CHARSET)), StandardCharsets.UTF_8);
         fileReview.setUrl(MethodUtils.stringToUrl(url0));
 

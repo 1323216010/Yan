@@ -2,6 +2,7 @@ package com.yan.files.controller;
 
 
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,10 +99,10 @@ public class FileReviewController extends BaseController
         return toAjax(fileReviewService.deleteFileReviewByIds(ids));
     }
 
-    @RequiresPermissions("files:review:add")
+
     @ApiOperation("文件上传")
     @PostMapping("fileUpload")
-    public AjaxResult fileUpload(@RequestParam("file") MultipartFile file) {
+    public AjaxResult fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
         return toAjax(fileReviewService.fileUpload(file));
     }
 
