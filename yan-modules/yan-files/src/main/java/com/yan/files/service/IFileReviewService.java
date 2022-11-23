@@ -4,6 +4,8 @@ import java.util.List;
 import com.yan.files.domain.FileReview;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 文件预览Service接口
  * 
@@ -60,5 +62,5 @@ public interface IFileReviewService
      */
     public int deleteFileReviewById(Long id);
 
-    public int fileUpload(MultipartFile file);
+    public int fileUpload(MultipartFile file, HttpServletRequest request);
 }

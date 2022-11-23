@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import com.yan.common.core.utils.DateUtils;
+import com.yan.common.security.service.TokenService;
 import com.yan.common.security.utils.SecurityUtils;
 import com.yan.files.config.StaticVariables;
 import com.yan.files.utils.MethodUtils;
 import com.yan.files.utils.StaticGetPrivate;
+import com.yan.system.api.model.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -26,6 +28,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 文件预览Service业务层处理
  * 
@@ -37,6 +41,10 @@ public class FileReviewServiceImpl implements IFileReviewService
 {
     @Autowired
     private FileReviewMapper fileReviewMapper;
+
+    @Autowired
+    private TokenService tokenService;
+
 
     private static final Charset DEFAULT_CHARSET;
 
@@ -127,7 +135,9 @@ public class FileReviewServiceImpl implements IFileReviewService
     }
 
     @Override
-    public int fileUpload(MultipartFile file) {
+    public int fileUpload(MultipartFile file, HttpServletRequest httpServletRequest) {
+        LoginUser loginUser = tokenService.getLoginUser(MethodUtils.getToken(httpServletRequest.getHeader("Authorization")));
+
         String url = kkAddres + "/fileUpload";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
@@ -137,7 +147,7 @@ public class FileReviewServiceImpl implements IFileReviewService
         StaticGetPrivate.getTemplates().exchange(url, HttpMethod.POST, requestEntity, String.class);
 
         FileReview fileReview = new FileReview();
-        fileReview.setUserName(SecurityUtils.getUsername());
+        fileReview.setUserName(loginUser.getUsername());
         fileReview.setTitle(MethodUtils.getFileTitle(file.getOriginalFilename()));
         fileReview.setName(file.getOriginalFilename());
         fileReview.setVolume(MethodUtils.getFileSize(String.valueOf(file.getSize())));

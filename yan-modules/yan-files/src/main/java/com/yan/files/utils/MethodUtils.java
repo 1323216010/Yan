@@ -224,4 +224,17 @@ public class MethodUtils {
         return null;
     }
 
+    public static String getToken(String token) {
+        char[] chars = token.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == ' ') {
+                token = "";
+                for (int j = i + 1; j < chars.length; j++) {
+                    token = token + chars[j];
+                }
+                return token;
+            }
+        }
+        return null;
+    }
 }
