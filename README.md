@@ -26,10 +26,6 @@ com.yan
 ├──pom.xml                // 公共依赖
 ~~~
 
-## 架构图
-
-<img src="https://oscimg.oschina.net/oscnet/up-82e9722ecb846786405a904bafcf19f73f3.png"/>
-
 ## 内置功能
 
 1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
