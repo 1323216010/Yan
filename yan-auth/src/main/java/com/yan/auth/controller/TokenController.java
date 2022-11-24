@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.yan.common.core.constant.SecurityConstants;
 import com.yan.common.core.utils.ServletUtils;
+import com.yan.common.core.utils.ip.AddressUtils;
 import com.yan.common.core.utils.ip.IpUtils;
 import com.yan.system.api.RemoteUserService;
 import com.yan.system.api.domain.SysUser;
@@ -50,6 +51,7 @@ public class TokenController
         sysUser.setUserId(userInfo.getSysUser().getUserId());
         sysUser.setUserName(userInfo.getSysUser().getUserName());
         sysUser.setLoginIp(IpUtils.getIpAddr(ServletUtils.getRequest()));
+        sysUser.setLoginAddress(AddressUtils.getRealAddressByIP(IpUtils.getIpAddr(ServletUtils.getRequest())));
         remoteUserService.setUserIp(sysUser, SecurityConstants.INNER);
 
         // 获取登录token
