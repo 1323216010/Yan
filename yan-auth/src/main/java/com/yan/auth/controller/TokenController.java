@@ -1,7 +1,6 @@
 package com.yan.auth.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
 import com.yan.common.core.constant.SecurityConstants;
 import com.yan.common.core.utils.ServletUtils;
 import com.yan.common.core.utils.ip.AddressUtils;
