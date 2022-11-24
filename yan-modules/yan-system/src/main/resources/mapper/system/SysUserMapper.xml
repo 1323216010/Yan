@@ -206,7 +206,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="resetUserPwd" parameterType="SysUser">
  		update sys_user set password = #{password} where user_name = #{userName}
 	</update>
-	
+
+	<update id="setUserIp" parameterType="SysUser">
+		update sys_user
+		<set>
+			<if test="loginIp != null and loginIp != ''">login_ip = #{loginIp},</if>
+		</set>
+		where user_id = #{userId}
+	</update>
+
+
 	<delete id="deleteUserById" parameterType="Long">
  		update sys_user set del_flag = '2' where user_id = #{userId}
  	</delete>

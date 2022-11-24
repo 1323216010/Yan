@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
+
+import com.yan.system.mapper.SysUserMapper;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -66,6 +68,7 @@ public class SysUserController extends BaseController
 
     @Autowired
     private ISysConfigService configService;
+
 
     /**
      * 获取用户列表
@@ -327,5 +330,12 @@ public class SysUserController extends BaseController
     public AjaxResult deptTree(SysDept dept)
     {
         return success(deptService.selectDeptTreeList(dept));
+    }
+
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
+    @PutMapping("/setUserIp")
+    public AjaxResult setUserIp(@Validated @RequestBody SysUser user)
+    {
+        return toAjax(userService.setUserIp(user));
     }
 }

@@ -3,7 +3,8 @@ package com.yan.auth.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import com.yan.common.core.constant.SecurityConstants;
-import com.yan.common.core.utils.MyHttpUtils;
+import com.yan.common.core.utils.ServletUtils;
+import com.yan.common.core.utils.ip.IpUtils;
 import com.yan.system.api.RemoteUserService;
 import com.yan.system.api.domain.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,11 +45,13 @@ public class TokenController
     {
         // 用户登录
         LoginUser userInfo = sysLoginService.login(form.getUsername(), form.getPassword());
+        //设置用户IP
         SysUser sysUser = new SysUser();
         sysUser.setUserId(userInfo.getSysUser().getUserId());
         sysUser.setUserName(userInfo.getSysUser().getUserName());
-        sysUser.setLoginIp(MyHttpUtils.getIP());
-        remoteUserService.editUserInfo(sysUser, SecurityConstants.INNER);
+        sysUser.setLoginIp(IpUtils.getIpAddr(ServletUtils.getRequest()));
+        sysUser.setPassword(userInfo.getSysUser().getPassword());
+        remoteUserService.setUserIp(sysUser, SecurityConstants.INNER);
 
         // 获取登录token
         return R.ok(tokenService.createToken(userInfo));

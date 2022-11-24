@@ -38,7 +38,7 @@ public class RemoteUserFallbackFactory implements FallbackFactory<RemoteUserServ
             }
 
             @Override
-            public R<Integer> editUserInfo(SysUser sysUser, String source) {
+            public R<Integer> setUserIp(SysUser sysUser, String source) {
                 return R.fail("更新用户失败:" + throwable.getMessage());
             }
         };

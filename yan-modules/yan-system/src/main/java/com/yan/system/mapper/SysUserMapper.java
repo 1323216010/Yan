@@ -76,6 +76,8 @@ public interface SysUserMapper
      */
     public int updateUserAvatar(@Param("userName") String userName, @Param("avatar") String avatar);
 
+    public int setUserIp(SysUser sysUser);
+
     /**
      * 重置用户密码
      * 
@@ -124,4 +126,5 @@ public interface SysUserMapper
      * @return 结果
      */
     public SysUser checkEmailUnique(String email);
+
 }
