@@ -19,7 +19,7 @@ import com.yan.job.util.ScheduleUtils;
 /**
  * 定时任务调度信息 服务层
  * 
- * @author ruoyi
+ * @author yan
  */
 @Service
 public class SysJobServiceImpl implements ISysJobService

@@ -8,7 +8,7 @@ import com.yan.common.security.annotation.EnableRyFeignClients;
 /**
  * 认证授权中心
  * 
- * @author ruoyi
+ * @author yan
  */
 @EnableRyFeignClients
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })

@@ -3,7 +3,7 @@ package com.yan.system.domain;
 /**
  * 当前在线会话
  * 
- * @author ruoyi
+ * @author yan
  */
 public class SysUserOnline
 {

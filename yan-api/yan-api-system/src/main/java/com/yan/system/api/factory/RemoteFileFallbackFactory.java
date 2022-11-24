@@ -12,7 +12,7 @@ import com.yan.system.api.domain.SysFile;
 /**
  * 文件服务降级处理
  * 
- * @author ruoyi
+ * @author yan
  */
 @Component
 public class RemoteFileFallbackFactory implements FallbackFactory<RemoteFileService>

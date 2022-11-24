@@ -20,7 +20,7 @@ import com.yan.common.core.web.domain.AjaxResult;
 /**
  * 全局异常处理器
  * 
- * @author ruoyi
+ * @author yan
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler

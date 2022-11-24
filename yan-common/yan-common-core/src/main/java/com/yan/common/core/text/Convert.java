@@ -11,7 +11,7 @@ import com.yan.common.core.utils.StringUtils;
 /**
  * 类型转换器
  * 
- * @author ruoyi
+ * @author yan
  */
 public class Convert
 {

@@ -11,7 +11,7 @@ import com.yan.common.core.web.domain.BaseEntity;
 /**
  * 业务表 gen_table
  * 
- * @author ruoyi
+ * @author yan
  */
 public class GenTable extends BaseEntity
 {

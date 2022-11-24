@@ -3,7 +3,7 @@ package com.yan.common.core.exception;
 /**
  * 权限异常
  * 
- * @author ruoyi
+ * @author yan
  */
 public class PreAuthorizeException extends RuntimeException
 {

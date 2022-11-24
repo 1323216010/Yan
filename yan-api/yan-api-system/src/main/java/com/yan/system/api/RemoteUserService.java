@@ -16,7 +16,7 @@ import com.yan.system.api.model.LoginUser;
 /**
  * 用户服务
  * 
- * @author ruoyi
+ * @author yan
  */
 @FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.SYSTEM_SERVICE, fallbackFactory = RemoteUserFallbackFactory.class)
 public interface RemoteUserService

@@ -18,7 +18,7 @@ import com.yan.common.core.utils.uuid.Seq;
 /**
  * 文件上传工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class FileUploadUtils
 {

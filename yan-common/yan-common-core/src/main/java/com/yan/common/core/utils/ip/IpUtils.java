@@ -8,7 +8,7 @@ import com.yan.common.core.utils.StringUtils;
 /**
  * 获取IP方法
  * 
- * @author ruoyi
+ * @author yan
  */
 public class IpUtils
 {

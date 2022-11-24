@@ -7,7 +7,7 @@ import com.yan.common.core.utils.StringUtils;
 /**
  * 字符集工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class CharsetKit
 {

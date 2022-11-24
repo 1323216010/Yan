@@ -7,7 +7,7 @@ import com.yan.system.domain.SysMenu;
 /**
  * 菜单表 数据层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface SysMenuMapper
 {

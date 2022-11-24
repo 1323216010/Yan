@@ -21,7 +21,7 @@ import com.yan.job.domain.SysJob;
 /**
  * 定时任务工具类
  * 
- * @author ruoyi
+ * @author yan
  *
  */
 public class ScheduleUtils

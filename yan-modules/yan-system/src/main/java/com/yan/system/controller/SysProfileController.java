@@ -30,7 +30,7 @@ import com.yan.system.service.ISysUserService;
 /**
  * 个人信息 业务处理
  * 
- * @author ruoyi
+ * @author yan
  */
 @RestController
 @RequestMapping("/user/profile")

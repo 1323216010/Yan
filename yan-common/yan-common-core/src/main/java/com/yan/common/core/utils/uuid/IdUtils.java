@@ -3,7 +3,7 @@ package com.yan.common.core.utils.uuid;
 /**
  * ID生成器工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class IdUtils
 {

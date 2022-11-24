@@ -20,7 +20,7 @@ import com.yan.system.api.model.LoginUser;
 /**
  * token验证处理
  * 
- * @author ruoyi
+ * @author yan
  */
 @Component
 public class TokenService

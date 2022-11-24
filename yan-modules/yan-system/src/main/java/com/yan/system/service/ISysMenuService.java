@@ -9,7 +9,7 @@ import com.yan.system.domain.vo.TreeSelect;
 /**
  * 菜单 业务层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface ISysMenuService
 {

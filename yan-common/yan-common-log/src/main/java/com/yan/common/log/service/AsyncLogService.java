@@ -10,7 +10,7 @@ import com.yan.system.api.domain.SysOperLog;
 /**
  * 异步调用日志服务
  * 
- * @author ruoyi
+ * @author yan
  */
 @Service
 public class AsyncLogService

@@ -12,7 +12,7 @@ import com.yan.system.api.domain.SysDictData;
 /**
  * 字典工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class DictUtils
 {

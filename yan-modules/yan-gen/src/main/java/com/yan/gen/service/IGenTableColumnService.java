@@ -6,7 +6,7 @@ import com.yan.gen.domain.GenTableColumn;
 /**
  * 业务字段 服务层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface IGenTableColumnService
 {

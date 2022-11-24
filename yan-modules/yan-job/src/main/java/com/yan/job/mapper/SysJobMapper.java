@@ -6,7 +6,7 @@ import com.yan.job.domain.SysJob;
 /**
  * 调度任务信息 数据层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface SysJobMapper
 {

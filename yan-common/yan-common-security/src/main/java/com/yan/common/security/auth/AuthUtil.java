@@ -7,7 +7,7 @@ import com.yan.system.api.model.LoginUser;
 /**
  * Token 权限验证工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class AuthUtil
 {

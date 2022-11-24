@@ -14,7 +14,7 @@ import com.yan.system.api.domain.SysFile;
 /**
  * 文件请求处理
  * 
- * @author ruoyi
+ * @author yan
  */
 @RestController
 public class SysFileController

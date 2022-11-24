@@ -6,7 +6,7 @@ import com.yan.system.domain.SysPost;
 /**
  * 岗位信息 服务层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface ISysPostService
 {

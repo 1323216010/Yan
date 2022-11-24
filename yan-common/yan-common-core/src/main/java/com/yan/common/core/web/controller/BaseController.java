@@ -17,7 +17,7 @@ import com.yan.common.core.web.page.TableDataInfo;
 /**
  * web层通用数据处理
  * 
- * @author ruoyi
+ * @author yan
  */
 public class BaseController
 {

@@ -5,7 +5,7 @@ import com.yan.common.core.utils.StringUtils;
 /**
  * 分页数据
  * 
- * @author ruoyi
+ * @author yan
  */
 public class PageDomain
 {

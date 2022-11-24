@@ -3,7 +3,7 @@ package com.yan.common.core.exception;
 /**
  * 工具类异常
  * 
- * @author ruoyi
+ * @author yan
  */
 public class UtilException extends RuntimeException
 {

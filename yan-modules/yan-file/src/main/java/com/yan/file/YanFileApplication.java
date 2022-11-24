@@ -8,7 +8,7 @@ import com.yan.common.swagger.annotation.EnableCustomSwagger2;
 /**
  * 文件服务
  * 
- * @author ruoyi
+ * @author yan
  */
 @EnableCustomSwagger2
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })

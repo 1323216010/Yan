@@ -5,7 +5,7 @@ import com.yan.common.core.utils.StringUtils;
 /**
  * 转义和反转义工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class EscapeUtil
 {

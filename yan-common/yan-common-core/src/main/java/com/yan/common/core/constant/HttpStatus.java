@@ -3,7 +3,7 @@ package com.yan.common.core.constant;
 /**
  * 返回状态码
  * 
- * @author ruoyi
+ * @author yan
  */
 public class HttpStatus
 {

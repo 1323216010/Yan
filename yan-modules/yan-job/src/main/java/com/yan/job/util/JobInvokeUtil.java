@@ -11,7 +11,7 @@ import com.yan.job.domain.SysJob;
 /**
  * 任务执行工具
  *
- * @author ruoyi
+ * @author yan
  */
 public class JobInvokeUtil
 {

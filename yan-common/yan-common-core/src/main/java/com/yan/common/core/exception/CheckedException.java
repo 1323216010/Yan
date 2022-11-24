@@ -3,7 +3,7 @@ package com.yan.common.core.exception;
 /**
  * 检查异常
  * 
- * @author ruoyi
+ * @author yan
  */
 public class CheckedException extends RuntimeException
 {

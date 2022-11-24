@@ -3,7 +3,7 @@ package com.yan.common.log.enums;
 /**
  * 业务操作类型
  * 
- * @author ruoyi
+ * @author yan
  */
 public enum BusinessType
 {

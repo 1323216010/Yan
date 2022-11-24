@@ -43,7 +43,7 @@ import com.yan.system.service.ISysUserService;
 /**
  * 用户信息
  * 
- * @author ruoyi
+ * @author yan
  */
 @RestController
 @RequestMapping("/user")

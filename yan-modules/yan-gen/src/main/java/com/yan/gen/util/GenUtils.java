@@ -11,7 +11,7 @@ import com.yan.gen.domain.GenTableColumn;
 /**
  * 代码生成器 工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class GenUtils
 {

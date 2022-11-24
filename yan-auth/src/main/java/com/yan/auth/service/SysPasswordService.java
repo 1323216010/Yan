@@ -13,7 +13,7 @@ import com.yan.system.api.domain.SysUser;
 /**
  * 登录密码方法
  * 
- * @author ruoyi
+ * @author yan
  */
 @Component
 public class SysPasswordService

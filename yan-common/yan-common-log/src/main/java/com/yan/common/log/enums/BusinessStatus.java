@@ -3,7 +3,7 @@ package com.yan.common.log.enums;
 /**
  * 操作状态
  * 
- * @author ruoyi
+ * @author yan
  *
  */
 public enum BusinessStatus

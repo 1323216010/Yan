@@ -16,7 +16,7 @@ import com.yan.common.core.utils.StringUtils;
 /**
  * 文件处理工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class FileUtils
 {

@@ -3,7 +3,7 @@ package com.yan.common.core.exception.base;
 /**
  * 基础异常
  * 
- * @author ruoyi
+ * @author yan
  */
 public class BaseException extends RuntimeException
 {

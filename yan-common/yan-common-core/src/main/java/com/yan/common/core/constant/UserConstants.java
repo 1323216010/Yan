@@ -3,7 +3,7 @@ package com.yan.common.core.constant;
 /**
  * 用户常量信息
  * 
- * @author ruoyi
+ * @author yan
  */
 public class UserConstants
 {

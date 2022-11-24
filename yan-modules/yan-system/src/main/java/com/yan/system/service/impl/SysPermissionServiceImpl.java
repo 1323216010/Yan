@@ -14,7 +14,7 @@ import com.yan.system.service.ISysRoleService;
 /**
  * 用户权限处理
  * 
- * @author ruoyi
+ * @author yan
  */
 @Service
 public class SysPermissionServiceImpl implements ISysPermissionService

@@ -6,7 +6,7 @@ import com.yan.system.api.domain.SysUser;
 /**
  * 用户 业务层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface ISysUserService
 {

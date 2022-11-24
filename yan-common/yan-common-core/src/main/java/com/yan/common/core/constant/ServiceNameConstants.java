@@ -3,7 +3,7 @@ package com.yan.common.core.constant;
 /**
  * 服务名称
  * 
- * @author ruoyi
+ * @author yan
  */
 public class ServiceNameConstants
 {

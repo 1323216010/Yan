@@ -3,7 +3,7 @@ package com.yan.common.core.exception.user;
 /**
  * 验证码失效异常类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class CaptchaExpireException extends UserException
 {

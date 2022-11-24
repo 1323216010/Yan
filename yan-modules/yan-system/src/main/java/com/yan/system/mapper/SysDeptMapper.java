@@ -7,7 +7,7 @@ import com.yan.system.api.domain.SysDept;
 /**
  * 部门管理 数据层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface SysDeptMapper
 {

@@ -3,7 +3,7 @@ package com.yan.common.core.exception;
 /**
  * 验证码错误异常类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class CaptchaException extends RuntimeException
 {

@@ -3,7 +3,7 @@ package com.yan.common.core.enums;
 /**
  * 用户状态
  * 
- * @author ruoyi
+ * @author yan
  */
 public enum UserStatus
 {

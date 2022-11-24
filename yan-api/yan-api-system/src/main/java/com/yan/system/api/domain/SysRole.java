@@ -12,7 +12,7 @@ import com.yan.common.core.web.domain.BaseEntity;
 /**
  * 角色表 sys_role
  * 
- * @author ruoyi
+ * @author yan
  */
 public class SysRole extends BaseEntity
 {

@@ -7,7 +7,7 @@ import com.yan.system.api.domain.SysUser;
 /**
  * 用户信息
  *
- * @author ruoyi
+ * @author yan
  */
 public class LoginUser implements Serializable
 {

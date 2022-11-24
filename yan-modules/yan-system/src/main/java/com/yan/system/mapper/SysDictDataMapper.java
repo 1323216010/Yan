@@ -7,7 +7,7 @@ import com.yan.system.api.domain.SysDictData;
 /**
  * 字典表 数据层
  * 
- * @author ruoyi
+ * @author yan
  */
 public interface SysDictDataMapper
 {

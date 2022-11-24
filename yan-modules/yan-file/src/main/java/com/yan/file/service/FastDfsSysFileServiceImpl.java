@@ -11,7 +11,7 @@ import com.yan.common.core.utils.file.FileTypeUtils;
 /**
  * FastDFS 文件存储
  * 
- * @author ruoyi
+ * @author yan
  */
 @Service
 public class FastDfsSysFileServiceImpl implements ISysFileService

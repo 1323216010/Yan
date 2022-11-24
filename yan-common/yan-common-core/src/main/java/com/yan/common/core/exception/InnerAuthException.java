@@ -3,7 +3,7 @@ package com.yan.common.core.exception;
 /**
  * 内部认证异常
  * 
- * @author ruoyi
+ * @author yan
  */
 public class InnerAuthException extends RuntimeException
 {

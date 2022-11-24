@@ -20,7 +20,7 @@ import com.yan.system.api.model.LoginUser;
 /**
  * token 控制
  * 
- * @author ruoyi
+ * @author yan
  */
 @RestController
 public class TokenController

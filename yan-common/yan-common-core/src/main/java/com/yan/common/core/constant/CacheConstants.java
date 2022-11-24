@@ -3,7 +3,7 @@ package com.yan.common.core.constant;
 /**
  * 缓存常量信息
  * 
- * @author ruoyi
+ * @author yan
  */
 public class CacheConstants
 {

@@ -12,7 +12,7 @@ import com.yan.system.api.model.LoginUser;
 /**
  * 权限获取工具类
  * 
- * @author ruoyi
+ * @author yan
  */
 public class SecurityUtils
 {

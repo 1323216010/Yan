@@ -17,7 +17,7 @@ import com.yan.system.api.model.LoginUser;
 /**
  * 登录校验方法
  * 
- * @author ruoyi
+ * @author yan
  */
 @Component
 public class SysLoginService

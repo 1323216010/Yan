@@ -9,7 +9,7 @@ import com.yan.common.swagger.annotation.EnableCustomSwagger2;
 /**
  * 定时任务
  * 
- * @author ruoyi
+ * @author yan
  */
 @EnableCustomConfig
 @EnableCustomSwagger2   

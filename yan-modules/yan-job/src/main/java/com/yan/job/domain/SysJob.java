@@ -16,7 +16,7 @@ import com.yan.job.util.CronUtils;
 /**
  * 定时任务调度表 sys_job
  * 
- * @author ruoyi
+ * @author yan
  */
 public class SysJob extends BaseEntity
 {

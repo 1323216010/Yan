@@ -3,7 +3,7 @@ package com.yan.common.core.exception;
 /**
  * 全局异常
  * 
- * @author ruoyi
+ * @author yan
  */
 public class GlobalException extends RuntimeException
 {
