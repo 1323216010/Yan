@@ -7,10 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.yan.common.core.utils.DateUtils;
+import com.yan.common.core.utils.MethodUtils;
 import com.yan.common.security.service.TokenService;
-import com.yan.common.security.utils.SecurityUtils;
-import com.yan.files.config.StaticVariables;
-import com.yan.files.utils.MethodUtils;
 import com.yan.files.utils.StaticGetPrivate;
 import com.yan.system.api.model.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;

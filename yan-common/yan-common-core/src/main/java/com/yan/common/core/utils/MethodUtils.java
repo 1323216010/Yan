@@ -1,4 +1,4 @@
-package com.yan.files.utils;
+package com.yan.common.core.utils;
 
 import java.io.*;
 import java.net.HttpURLConnection;
