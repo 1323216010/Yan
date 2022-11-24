@@ -332,6 +332,7 @@ public class SysUserController extends BaseController
         return success(deptService.selectDeptTreeList(dept));
     }
 
+    @InnerAuth
     @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping("/setUserIp")
     public AjaxResult setUserIp(@Validated @RequestBody SysUser user)

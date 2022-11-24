@@ -543,11 +543,7 @@ public class SysUserServiceImpl implements ISysUserService
 
     @Override
     public int setUserIp(SysUser user) {
-        SysUser userInfo = userMapper.selectUserById(user.getUserId());
-        if(userInfo.getPassword().equals(user.getPassword())) {
-            return userMapper.setUserIp(user);
-        }
-        return 0;
+        return userMapper.setUserIp(user);
     }
 
 }

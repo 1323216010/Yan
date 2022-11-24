@@ -50,7 +50,6 @@ public class TokenController
         sysUser.setUserId(userInfo.getSysUser().getUserId());
         sysUser.setUserName(userInfo.getSysUser().getUserName());
         sysUser.setLoginIp(IpUtils.getIpAddr(ServletUtils.getRequest()));
-        sysUser.setPassword(userInfo.getSysUser().getPassword());
         remoteUserService.setUserIp(sysUser, SecurityConstants.INNER);
 
         // 获取登录token
