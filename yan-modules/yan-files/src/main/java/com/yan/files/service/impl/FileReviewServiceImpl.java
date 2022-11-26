@@ -115,7 +115,7 @@ public class FileReviewServiceImpl implements IFileReviewService
             FileReview fileReview = fileReviewMapper.selectFileReviewById(ids[i]);
             Map<String,Object> map = new HashMap<>();
             map.put("fileName",fileReview.getName());
-            StaticGetPrivate.getTemplates().getForObject(kkAddres + "/deleteFile" + "?fileName={fileName}",String.class,map);
+            StaticGetPrivate.getResTemplate().getForObject(kkAddres + "/deleteFile" + "?fileName={fileName}",String.class,map);
         }
         return fileReviewMapper.deleteFileReviewByIds(ids);
     }
@@ -142,7 +142,7 @@ public class FileReviewServiceImpl implements IFileReviewService
         LinkedMultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
         params.add("file", file.getResource());
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<MultiValueMap<String, Object>>(params, headers);
-        StaticGetPrivate.getTemplates().exchange(url, HttpMethod.POST, requestEntity, String.class);
+        StaticGetPrivate.getResTemplate().exchange(url, HttpMethod.POST, requestEntity, String.class);
 
         FileReview fileReview = new FileReview();
         fileReview.setUserName(loginUser.getUsername());

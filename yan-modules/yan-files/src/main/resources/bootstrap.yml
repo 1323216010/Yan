@@ -30,3 +30,6 @@ spring:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
 kkFile:
   address: http://111.230.194.21:8012
+
+amap:
+  Key: a5c43b5d4af0d47f3c8b9cebfcbc0430

@@ -1,9 +1,15 @@
 package com.yan.files.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
+import com.yan.files.utils.StaticGetPrivate;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -99,10 +105,25 @@ public class FileReviewController extends BaseController
         return toAjax(fileReviewService.deleteFileReviewByIds(ids));
     }
 
-
     @ApiOperation("文件上传")
     @PostMapping("/fileUpload")
     public AjaxResult fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
         return toAjax(fileReviewService.fileUpload(file, httpServletRequest));
+    }
+
+
+    @GetMapping(value = "/weather")
+    public AjaxResult getWeather(HttpServletRequest request)
+    {
+        Map<String,String> map = new HashMap();
+        map.put("Key","a5c43b5d4af0d47f3c8b9cebfcbc0430");
+        map.put("ip","39.171.222.166");
+        JSONObject jsonObject = StaticGetPrivate.getResTemplate().getForObject("https://restapi.amap.com/v3/ip?ip={ip}&Key={Key}", JSONObject.class, map);
+        String adcode = jsonObject.getString("adcode");
+
+        map.put("city",adcode);
+        jsonObject = StaticGetPrivate.getResTemplate().getForObject("https://restapi.amap.com/v3/weather/weatherInfo?city={city}&Key={Key}", JSONObject.class, map);
+        JSONArray lives = jsonObject.getJSONArray("lives");
+        return success(lives);
     }
 }

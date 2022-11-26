@@ -1,10 +1,7 @@
-package com.yan.files.utils;
+package com.yan.job.task.utils;
 
-import com.yan.files.config.StaticVariables;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
@@ -24,15 +21,11 @@ public class StaticGetPrivate {
     @Value("${spring.mail.username}")
     private String emailFrom;
 
-    @Value("${kkFile.address}")
-    private String kkAddres;
-
     @PostConstruct
     public void init() {
         staticGetPrivate = this;
         staticGetPrivate.restTemplate = this.restTemplate;
         staticGetPrivate.emailFrom = this.emailFrom;
-        staticGetPrivate.kkAddres = this.kkAddres;
     }
 
     public static RestTemplate getResTemplate() {
@@ -41,9 +34,5 @@ public class StaticGetPrivate {
 
     public static String getEmailFrom() {
         return staticGetPrivate.emailFrom;
-    }
-
-    public static String getKkAddres() {
-        return staticGetPrivate.kkAddres;
     }
 }
