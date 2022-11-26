@@ -12,6 +12,7 @@ import com.alibaba.fastjson2.JSONObject;
 import com.yan.files.utils.StaticGetPrivate;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import com.yan.common.log.annotation.Log;
 import com.yan.common.log.enums.BusinessType;
@@ -36,6 +37,9 @@ public class FileReviewController extends BaseController
 {
     @Autowired
     private IFileReviewService fileReviewService;
+
+    @Value("${amap.Key}")
+    private String key;
 
     /**
      * 查询文件预览列表
@@ -116,7 +120,7 @@ public class FileReviewController extends BaseController
     public AjaxResult getWeather(HttpServletRequest request)
     {
         Map<String,String> map = new HashMap();
-        map.put("Key","a5c43b5d4af0d47f3c8b9cebfcbc0430");
+        map.put("Key",key);
         map.put("ip","39.171.222.166");
         JSONObject jsonObject = StaticGetPrivate.getResTemplate().getForObject("https://restapi.amap.com/v3/ip?ip={ip}&Key={Key}", JSONObject.class, map);
         String adcode = jsonObject.getString("adcode");
