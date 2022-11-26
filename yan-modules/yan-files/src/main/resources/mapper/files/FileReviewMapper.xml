@@ -34,13 +34,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null  and type != ''"> and type = #{type}</if>
             <if test="url != null  and url != ''"> and url = #{url}</if>
             <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
-            <if test="secret != null  and secret != ''"> and secret = #{secret}</if>
+<!--            <if test="secret != null  and secret != ''"> and secret = #{secret}</if>-->
             <if test="title != null  and title != ''"> and title = #{title}</if>
             <if test="star != null  and star != ''"> and star = #{star}</if>
             <if test="author != null  and author != ''"> and author = #{author}</if>
             <if test="info != null  and info != ''"> and info = #{info}</if>
             <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
             <if test="volume != null  and volume != ''"> and volume = #{volume}</if>
+            and secret is null
         </where>
     </select>
     
