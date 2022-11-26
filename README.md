@@ -21,6 +21,7 @@ com.yan
 │       └── yan-gen                                 // 代码生成 [9202]
 │       └── yan-job                                 // 定时任务 [9203]
 │       └── yan-file                                // 文件服务 [9300]
+│       └── yan-files                               // 文件模块 [9207]
 ├── yan-visual          // 图形化管理模块
 │       └── yan-visual-monitor                      // 监控中心 [9100]
 ├──pom.xml                // 公共依赖
