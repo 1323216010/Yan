@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
+import com.yan.common.core.utils.ServletUtils;
+import com.yan.common.core.utils.ip.IpUtils;
 import com.yan.files.utils.StaticGetPrivate;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,7 +123,7 @@ public class FileReviewController extends BaseController
     {
         Map<String,String> map = new HashMap();
         map.put("Key",key);
-        map.put("ip","39.171.222.166");
+        map.put("ip", IpUtils.getIpAddr(ServletUtils.getRequest()));
         JSONObject jsonObject = StaticGetPrivate.getResTemplate().getForObject("https://restapi.amap.com/v3/ip?ip={ip}&Key={Key}", JSONObject.class, map);
         String adcode = jsonObject.getString("adcode");
 
