@@ -1,6 +1,8 @@
 package com.yan.auth.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.yan.common.core.constant.SecurityConstants;
 import com.yan.common.core.utils.ServletUtils;
 import com.yan.common.core.utils.ip.AddressUtils;
@@ -23,6 +25,7 @@ import com.yan.common.security.service.TokenService;
 import com.yan.common.security.utils.SecurityUtils;
 import com.yan.system.api.model.LoginUser;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -97,9 +100,10 @@ public class TokenController
     }
 
     @PostMapping("singleSignOn/getToken")
-    public Map<String, Object> getToken() {
+    public Map<String, Object> getToken(HttpServletResponse response) throws IOException {
         LoginUser userInfo = sysLoginService.login("admin", "admin123");
         Map<String, Object> map = tokenService.createToken(userInfo);
+        response.sendRedirect("pcRedirectUrl" + "?token=" + map.get("access_token"));
         return map;
     }
 }
