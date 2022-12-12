@@ -103,7 +103,7 @@ public class TokenController
     public Map<String, Object> getToken(HttpServletResponse response) throws IOException {
         LoginUser userInfo = sysLoginService.login("admin", "admin123");
         Map<String, Object> map = tokenService.createToken(userInfo);
-        response.sendRedirect("pcRedirectUrl" + "?token=" + map.get("access_token"));
+        response.sendRedirect("http://172.18.29.124:8080/single_point" + "?token=" + map.get("access_token"));
         return map;
     }
 }
