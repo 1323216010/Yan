@@ -23,6 +23,9 @@ import com.yan.common.security.service.TokenService;
 import com.yan.common.security.utils.SecurityUtils;
 import com.yan.system.api.model.LoginUser;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * token 控制
  * 
@@ -91,5 +94,12 @@ public class TokenController
         // 用户注册
         sysLoginService.register(registerBody.getUsername(), registerBody.getPassword());
         return R.ok();
+    }
+
+    @PostMapping("singleSignOn/getToken")
+    public Map<String, Object> getToken() {
+        LoginUser userInfo = sysLoginService.login("admin", "admin123");
+        Map<String, Object> map = tokenService.createToken(userInfo);
+        return map;
     }
 }
