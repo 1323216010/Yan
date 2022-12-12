@@ -99,11 +99,11 @@ public class TokenController
         return R.ok();
     }
 
-    @PostMapping("singleSignOn/getToken")
+    @PostMapping("sso/getToken")
     public Map<String, Object> getToken(HttpServletResponse response) throws IOException {
         LoginUser userInfo = sysLoginService.login("admin", "admin123");
         Map<String, Object> map = tokenService.createToken(userInfo);
-        response.sendRedirect("http://172.18.29.124:8080/single_point" + "?token=" + map.get("access_token"));
+        response.sendRedirect("https://www.yan-ui.asia/sso" + "?token=" + map.get("access_token"));
         return map;
     }
 }
