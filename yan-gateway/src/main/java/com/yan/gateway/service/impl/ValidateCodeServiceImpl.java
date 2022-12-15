@@ -14,7 +14,7 @@ import com.yan.common.core.constant.Constants;
 import com.yan.common.core.exception.CaptchaException;
 import com.yan.common.core.utils.StringUtils;
 import com.yan.common.core.utils.sign.Base64;
-import com.yan.common.core.utils.uuid.IdUtils;
+import com.yan.common.core.utils.id.IdUtils;
 import com.yan.common.core.web.domain.AjaxResult;
 import com.yan.common.redis.service.RedisService;
 import com.yan.gateway.config.properties.CaptchaProperties;

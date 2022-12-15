@@ -13,7 +13,7 @@ import com.yan.common.core.utils.DateUtils;
 import com.yan.common.core.utils.StringUtils;
 import com.yan.common.core.utils.file.FileTypeUtils;
 import com.yan.common.core.utils.file.MimeTypeUtils;
-import com.yan.common.core.utils.uuid.Seq;
+import com.yan.common.core.utils.id.Seq;
 
 /**
  * 文件上传工具类

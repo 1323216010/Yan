@@ -1,4 +1,4 @@
-package com.yan.common.core.utils.uuid;
+package com.yan.common.core.utils.id;
 
 /**
  * ID生成器工具类

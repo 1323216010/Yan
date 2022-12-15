@@ -1,4 +1,4 @@
-package com.yan.common.core.utils.uuid;
+package com.yan.common.core.utils.id;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

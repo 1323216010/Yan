@@ -1,4 +1,4 @@
-package com.yan.common.core.utils.uuid;
+package com.yan.common.core.utils.id;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import com.yan.common.core.utils.DateUtils;

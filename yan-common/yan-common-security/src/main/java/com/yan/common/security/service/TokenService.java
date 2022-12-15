@@ -12,7 +12,7 @@ import com.yan.common.core.utils.JwtUtils;
 import com.yan.common.core.utils.ServletUtils;
 import com.yan.common.core.utils.StringUtils;
 import com.yan.common.core.utils.ip.IpUtils;
-import com.yan.common.core.utils.uuid.IdUtils;
+import com.yan.common.core.utils.id.IdUtils;
 import com.yan.common.redis.service.RedisService;
 import com.yan.common.security.utils.SecurityUtils;
 import com.yan.system.api.model.LoginUser;
