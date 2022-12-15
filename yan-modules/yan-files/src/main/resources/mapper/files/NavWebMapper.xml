@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yan.files.mapper.NavWebMapper">
+    
+    <resultMap type="NavWeb" id="NavWebResult">
+        <result property="id"    column="id"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="parentName"    column="parent_name"    />
+        <result property="url"    column="url"    />
+        <result property="logo"    column="logo"    />
+        <result property="title"    column="title"    />
+        <result property="desc"    column="desc"    />
+        <result property="orderNum"    column="order_num"    />
+        <result property="status"    column="status"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectNavWebVo">
+        select id, parent_id, parent_name, url, logo, title, desc, order_num, status, del_flag, create_by, create_time, update_by, update_time from t_nav_web
+    </sql>
+
+    <select id="selectNavWebList" parameterType="NavWeb" resultMap="NavWebResult">
+        <include refid="selectNavWebVo"/>
+        <where>  
+            <if test="parentId != null "> and parent_id = #{parentId}</if>
+            <if test="parentName != null  and parentName != ''"> and parent_name like concat('%', #{parentName}, '%')</if>
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+            <if test="logo != null  and logo != ''"> and logo = #{logo}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="desc != null  and desc != ''"> and desc = #{desc}</if>
+            <if test="orderNum != null "> and order_num = #{orderNum}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectNavWebById" parameterType="Long" resultMap="NavWebResult">
+        <include refid="selectNavWebVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertNavWeb" parameterType="NavWeb">
+        insert into t_nav_web
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="parentId != null">parent_id,</if>
+            <if test="parentName != null">parent_name,</if>
+            <if test="url != null">url,</if>
+            <if test="logo != null">logo,</if>
+            <if test="title != null">title,</if>
+            <if test="desc != null">desc,</if>
+            <if test="orderNum != null">order_num,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="parentId != null">#{parentId},</if>
+            <if test="parentName != null">#{parentName},</if>
+            <if test="url != null">#{url},</if>
+            <if test="logo != null">#{logo},</if>
+            <if test="title != null">#{title},</if>
+            <if test="desc != null">#{desc},</if>
+            <if test="orderNum != null">#{orderNum},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNavWeb" parameterType="NavWeb">
+        update t_nav_web
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            <if test="parentName != null">parent_name = #{parentName},</if>
+            <if test="url != null">url = #{url},</if>
+            <if test="logo != null">logo = #{logo},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="desc != null">desc = #{desc},</if>
+            <if test="orderNum != null">order_num = #{orderNum},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNavWebById" parameterType="Long">
+        delete from t_nav_web where id = #{id}
+    </delete>
+
+    <delete id="deleteNavWebByIds" parameterType="String">
+        delete from t_nav_web where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
