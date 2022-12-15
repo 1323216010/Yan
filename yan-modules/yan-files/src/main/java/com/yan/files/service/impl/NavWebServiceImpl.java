@@ -2,6 +2,7 @@ package com.yan.files.service.impl;
 
 import java.util.List;
 import com.yan.common.core.utils.DateUtils;
+import com.yan.files.utils.StaticGetPrivate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yan.files.mapper.NavWebMapper;
@@ -53,6 +54,7 @@ public class NavWebServiceImpl implements INavWebService
     @Override
     public int insertNavWeb(NavWeb navWeb)
     {
+        navWeb.setId(StaticGetPrivate.getSnowFlake().nextId());
         navWeb.setCreateTime(DateUtils.getNowDate());
         return navWebMapper.insertNavWeb(navWeb);
     }
