@@ -29,7 +29,7 @@ import com.yan.common.core.web.page.TableDataInfo;
  * @date 2022-12-15
  */
 @RestController
-@RequestMapping("/nav")
+@RequestMapping("/navWeb")
 public class NavWebController extends BaseController
 {
     @Autowired
