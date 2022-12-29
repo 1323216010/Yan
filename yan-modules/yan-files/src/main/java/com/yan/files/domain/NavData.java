@@ -19,11 +19,11 @@ public class NavData extends TreeEntity
     private Long id;
 
     /**  侧边栏一级名称 */
-    @Excel(name = " 侧边栏一级名称")
+    @Excel(name = " 导航树节点名称")
     private String name;
 
     /**  侧边栏一级名称 */
-    @Excel(name = " 侧边栏一级名称")
+    @Excel(name = " 导航树节点名称")
     private String enName;
 
     /**  侧边栏一级图标 */
