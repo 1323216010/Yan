@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
         <result property="isUrl"    column="is_url"    />
         <result property="brief"    column="brief"    />
-
+        <result property="url"    column="url"    />
     </resultMap>
 
     <sql id="selectNavDataVo">
@@ -43,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
             <if test="isUrl != null  and isUrl != ''"> and is_url = #{isUrl}</if>
             <if test="brief != null  and brief != ''"> and brief = #{brief}</if>
+            <if test="url != null  and url != ''"> and url = #{url}</if>
         </where>
     </select>
     
@@ -70,6 +71,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateTime != null">update_time,</if>
             <if test="isUrl != null  and isUrl != ''">  is_url,</if>
             <if test="brief != null  and brief != ''">  brief,</if>
+
+            <if test="url != null  and url != ''">  url,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
@@ -88,6 +91,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateTime != null">#{updateTime},</if>
             <if test="isUrl != null  and isUrl != ''">  #{isUrl},</if>
             <if test="brief != null  and brief != ''">  #{brief},</if>
+            <if test="url != null  and url != ''">  #{url},</if>
          </trim>
     </insert>
 
@@ -109,6 +113,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="isUrl != null  and isUrl != ''">  is_url = #{isUrl},</if>
             <if test="brief != null  and brief != ''">  brief = #{brief},</if>
+            <if test="url != null  and url != ''">  url = #{url},</if>
         </trim>
         where id = #{id}
     </update>

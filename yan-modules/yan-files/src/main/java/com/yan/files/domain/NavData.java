@@ -58,6 +58,16 @@ public class NavData extends TreeEntity
 
     private String brief;
 
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     /** 删除标志（0代表存在 2代表删除） */
     private String delFlag;
 
@@ -144,6 +154,7 @@ public class NavData extends TreeEntity
             .append("updateTime", getUpdateTime())
             .append("isUrl", getIsUrl())
             .append("brief", getBrief())
+            .append("url", getUrl())
             .toString();
     }
 }
