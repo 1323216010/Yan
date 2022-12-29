@@ -30,6 +30,22 @@ public class NavData extends TreeEntity
     @Excel(name = " 侧边栏一级图标")
     private String icon;
 
+    public String getIsUrl() {
+        return isUrl;
+    }
+
+    public void setIsUrl(String isUrl) {
+        this.isUrl = isUrl;
+    }
+
+    public String getBrief() {
+        return brief;
+    }
+
+    public void setBrief(String brief) {
+        this.brief = brief;
+    }
+
     /** $column.columnComment */
     @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Long webId;
@@ -37,6 +53,10 @@ public class NavData extends TreeEntity
     /** 状态（0正常 1停用） */
     @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
     private String status;
+
+    private String isUrl;
+
+    private String brief;
 
     /** 删除标志（0代表存在 2代表删除） */
     private String delFlag;
@@ -122,6 +142,8 @@ public class NavData extends TreeEntity
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())
             .append("updateTime", getUpdateTime())
+            .append("isUrl", getIsUrl())
+            .append("brief", getBrief())
             .toString();
     }
 }

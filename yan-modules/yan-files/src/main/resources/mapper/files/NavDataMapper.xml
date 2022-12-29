@@ -19,6 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
         <result property="updateTime"    column="update_time"    />
+
+        <result property="isUrl"    column="is_url"    />
+        <result property="brief"    column="brief"    />
+
     </resultMap>
 
     <sql id="selectNavDataVo">
@@ -36,6 +40,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="orderNum != null "> and order_num = #{orderNum}</if>
             <if test="webId != null "> and web_id = #{webId}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
+
+            <if test="isUrl != null  and isUrl != ''"> and is_url = #{isUrl}</if>
+            <if test="brief != null  and brief != ''"> and brief = #{brief}</if>
         </where>
     </select>
     
@@ -61,6 +68,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createTime != null">create_time,</if>
             <if test="updateBy != null">update_by,</if>
             <if test="updateTime != null">update_time,</if>
+            <if test="isUrl != null  and isUrl != ''">  is_url,</if>
+            <if test="brief != null  and brief != ''">  brief,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
@@ -77,6 +86,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createTime != null">#{createTime},</if>
             <if test="updateBy != null">#{updateBy},</if>
             <if test="updateTime != null">#{updateTime},</if>
+            <if test="isUrl != null  and isUrl != ''">  #{isUrl},</if>
+            <if test="brief != null  and brief != ''">  #{brief},</if>
          </trim>
     </insert>
 
@@ -96,6 +107,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="isUrl != null  and isUrl != ''">  is_url = #{isUrl},</if>
+            <if test="brief != null  and brief != ''">  brief = #{brief},</if>
         </trim>
         where id = #{id}
     </update>
