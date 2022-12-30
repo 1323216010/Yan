@@ -1,8 +1,11 @@
 package com.yan.files;
 
+import com.github.yitter.contract.IdGeneratorOptions;
+import com.github.yitter.idgen.YitIdHelper;
 import com.yan.common.security.annotation.EnableCustomConfig;
 import com.yan.common.security.annotation.EnableRyFeignClients;
 import com.yan.common.swagger.annotation.EnableCustomSwagger2;
+import com.yan.files.utils.StaticGetPrivate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -30,5 +33,6 @@ public class YanFilesApplication
             " |  | \\ `'   /|   `-'  /           \n" +
             " |  |  \\    /  \\      /           \n" +
             " ''-'   `'-'    `-..-'              ");
+        System.out.println("YitIdHelper.nextId()" + YitIdHelper.nextId());
     }
 }

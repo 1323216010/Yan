@@ -1,6 +1,8 @@
 package com.yan.files.service.impl;
 
 import java.util.List;
+
+import com.github.yitter.idgen.YitIdHelper;
 import com.yan.common.core.utils.DateUtils;
 import com.yan.files.utils.StaticGetPrivate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +56,7 @@ public class NavDataServiceImpl implements INavDataService
     @Override
     public int insertNavData(NavData navData)
     {
-        navData.setId(StaticGetPrivate.getSnowFlake().nextId());
+        navData.setId(YitIdHelper.nextId());
         navData.setCreateTime(DateUtils.getNowDate());
         return navDataMapper.insertNavData(navData);
     }

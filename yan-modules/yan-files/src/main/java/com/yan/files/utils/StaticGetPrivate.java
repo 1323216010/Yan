@@ -1,5 +1,6 @@
 package com.yan.files.utils;
 
+import com.github.yitter.contract.IdGeneratorOptions;
 import com.yan.common.core.utils.id.SnowFlake;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +23,9 @@ public class StaticGetPrivate {
     @Resource
     private SnowFlake snowFlake;
 
+    @Resource
+    private IdGeneratorOptions idGeneratorOptions;
+
     @Value("${spring.mail.username}")
     private String emailFrom;
 
@@ -35,6 +39,7 @@ public class StaticGetPrivate {
         staticGetPrivate.snowFlake = this.snowFlake;
         staticGetPrivate.emailFrom = this.emailFrom;
         staticGetPrivate.kkAddres = this.kkAddres;
+        staticGetPrivate.idGeneratorOptions = this.idGeneratorOptions;
     }
 
     public static RestTemplate getResTemplate() {
@@ -43,6 +48,10 @@ public class StaticGetPrivate {
 
     public static SnowFlake getSnowFlake() {
         return staticGetPrivate.snowFlake;
+    }
+
+    public static IdGeneratorOptions getIdGeneratorOptions() {
+        return staticGetPrivate.idGeneratorOptions;
     }
 
     public static String getEmailFrom() {
