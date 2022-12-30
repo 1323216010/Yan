@@ -23,10 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="isUrl"    column="is_url"    />
         <result property="brief"    column="brief"    />
         <result property="url"    column="url"    />
+        <result property="classification"    column="classification"    />
     </resultMap>
 
     <sql id="selectNavDataVo">
-        select id, parent_id, name, parent_name, en_name, icon, order_num, web_id, status, del_flag, create_by, create_time, update_by, update_time, is_url, brief, url from t_nav_data
+        select id, parent_id, name, parent_name, en_name, icon, order_num, web_id, status, del_flag, create_by, create_time, update_by, update_time, is_url, brief, url, classification from t_nav_data
     </sql>
 
     <select id="selectNavDataList" parameterType="NavData" resultMap="NavDataResult">
@@ -44,6 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="isUrl != null  and isUrl != ''"> and is_url = #{isUrl}</if>
             <if test="brief != null  and brief != ''"> and brief = #{brief}</if>
             <if test="url != null  and url != ''"> and url = #{url}</if>
+            <if test="classification != null  and classification != ''"> and classification = #{classification}</if>
         </where>
         order by order_num asc
     </select>
@@ -74,6 +76,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="brief != null  and brief != ''">  brief,</if>
 
             <if test="url != null  and url != ''">  url,</if>
+            <if test="classification != null  and classification != ''">  classification,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
@@ -93,6 +96,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="isUrl != null  and isUrl != ''">  #{isUrl},</if>
             <if test="brief != null  and brief != ''">  #{brief},</if>
             <if test="url != null  and url != ''">  #{url},</if>
+            <if test="classification != null  and classification != ''">  #{classification},</if>
          </trim>
     </insert>
 
@@ -115,6 +119,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="isUrl != null  and isUrl != ''">  is_url = #{isUrl},</if>
             <if test="brief != null  and brief != ''">  brief = #{brief},</if>
             <if test="url != null  and url != ''">  url = #{url},</if>
+            <if test="classification != null  and classification != ''">  classification = #{classification},</if>
         </trim>
         where id = #{id}
     </update>
