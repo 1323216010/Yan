@@ -45,6 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="brief != null  and brief != ''"> and brief = #{brief}</if>
             <if test="url != null  and url != ''"> and url = #{url}</if>
         </where>
+        order by order_num asc
     </select>
     
     <select id="selectNavDataById" parameterType="Long" resultMap="NavDataResult">
