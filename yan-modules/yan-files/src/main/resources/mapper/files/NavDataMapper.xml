@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectNavDataVo">
-        select id, parent_id, name, parent_name, en_name, icon, order_num, web_id, status, del_flag, create_by, create_time, update_by, update_time from t_nav_data
+        select id, parent_id, name, parent_name, en_name, icon, order_num, web_id, status, del_flag, create_by, create_time, update_by, update_time, is_url, brief, url from t_nav_data
     </sql>
 
     <select id="selectNavDataList" parameterType="NavData" resultMap="NavDataResult">
