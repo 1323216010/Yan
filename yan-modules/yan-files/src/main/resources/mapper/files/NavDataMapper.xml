@@ -117,9 +117,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">update_by = #{updateBy},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="isUrl != null  and isUrl != ''">  is_url = #{isUrl},</if>
-            <if test="brief != null  and brief != ''">  brief = #{brief},</if>
-            <if test="url != null  and url != ''">  url = #{url},</if>
-            <if test="classification != null  and classification != ''">  classification = #{classification},</if>
+            <if test="brief != null">  brief = #{brief},</if>
+            <if test="url != null">  url = #{url},</if>
+            <if test="classification != null">  classification = #{classification},</if>
         </trim>
         where id = #{id}
     </update>
