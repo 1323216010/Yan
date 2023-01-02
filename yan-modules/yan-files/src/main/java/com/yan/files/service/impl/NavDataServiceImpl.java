@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.github.yitter.idgen.YitIdHelper;
 import com.yan.common.core.utils.DateUtils;
+import com.yan.common.security.utils.SecurityUtils;
 import com.yan.files.utils.StaticGetPrivate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,7 @@ public class NavDataServiceImpl implements INavDataService
     {
         navData.setId(YitIdHelper.nextId());
         navData.setCreateTime(DateUtils.getNowDate());
+        navData.setCreateBy(SecurityUtils.getUsername());
         return navDataMapper.insertNavData(navData);
     }
 
@@ -71,6 +73,7 @@ public class NavDataServiceImpl implements INavDataService
     public int updateNavData(NavData navData)
     {
         navData.setUpdateTime(DateUtils.getNowDate());
+        navData.setUpdateBy(SecurityUtils.getUsername());
         return navDataMapper.updateNavData(navData);
     }
 
