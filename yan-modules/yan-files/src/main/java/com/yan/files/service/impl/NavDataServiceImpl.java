@@ -45,6 +45,7 @@ public class NavDataServiceImpl implements INavDataService
     @Override
     public List<NavData> selectNavDataList(NavData navData)
     {
+        navData.setCreateBy(SecurityUtils.getUsername());
         return navDataMapper.selectNavDataList(navData);
     }
 

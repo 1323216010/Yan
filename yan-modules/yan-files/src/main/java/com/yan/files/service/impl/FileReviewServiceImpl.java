@@ -9,6 +9,7 @@ import java.util.Map;
 import com.yan.common.core.utils.DateUtils;
 import com.yan.common.core.utils.MethodUtils;
 import com.yan.common.security.service.TokenService;
+import com.yan.common.security.utils.SecurityUtils;
 import com.yan.files.utils.StaticGetPrivate;
 import com.yan.system.api.model.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +74,7 @@ public class FileReviewServiceImpl implements IFileReviewService
     @Override
     public List<FileReview> selectFileReviewList(FileReview fileReview)
     {
+        fileReview.setUserName(SecurityUtils.getUsername());
         return fileReviewMapper.selectFileReviewList(fileReview);
     }
 

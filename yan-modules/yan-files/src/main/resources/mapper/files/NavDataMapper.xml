@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="orderNum != null "> and order_num = #{orderNum}</if>
             <if test="webId != null "> and web_id = #{webId}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
-
+            <if test="createBy != null  and createBy != ''"> and create_by = #{createBy}</if>
             <if test="isUrl != null  and isUrl != ''"> and is_url = #{isUrl}</if>
             <if test="brief != null  and brief != ''"> and brief = #{brief}</if>
             <if test="url != null  and url != ''"> and url = #{url}</if>
