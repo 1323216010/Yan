@@ -158,7 +158,7 @@ public class FileReviewServiceImpl implements IFileReviewService
         fileReview.setVolume(MethodUtils.getFileSize(String.valueOf(file.getSize())));
         fileReview.setType(MethodUtils.getFileType(file.getOriginalFilename()));
 //        String url1 = kkAddres + "/demo/" + file.getOriginalFilename();
-        String url1 = hostAddress + "files/review/download/?fileName=" + fileName + "&fullfilename=" + fileName;
+        String url1 = hostAddress + "files/review/download?fileName=" + fileName + "&fullfilename=" + fileName;
         url1 = new String(Base64Utils.encode(url1.getBytes(DEFAULT_CHARSET)), StandardCharsets.UTF_8);
         fileReview.setUrl(MethodUtils.stringToUrl(url1));
         return fileReviewMapper.insertFileReview(fileReview);
