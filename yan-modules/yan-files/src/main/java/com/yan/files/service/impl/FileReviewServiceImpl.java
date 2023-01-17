@@ -143,7 +143,7 @@ public class FileReviewServiceImpl implements IFileReviewService
         //重新生成文件名
         fileName = UUID.randomUUID() + suffixName;
         //指定本地文件夹存储
-        String filePath = System.getProperty("user.dir") + File.separator + "files" + File.separator + SecurityUtils.getUsername() + File.separator;
+        String filePath = System.getProperty("user.dir") + File.separator + "files" + File.separator + loginUser.getUsername() + File.separator;
         File folder = new File(filePath);
         //判断是否存在文件夹，不存在则新建
         if (!folder.exists()) {
