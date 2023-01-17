@@ -1,5 +1,6 @@
 package com.yan.files.service.impl;
 
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -8,23 +9,19 @@ import java.util.Map;
 
 import com.yan.common.core.utils.DateUtils;
 import com.yan.common.core.utils.MethodUtils;
+import com.yan.common.core.utils.id.UUID;
+import com.yan.common.core.utils.ip.IpUtils;
 import com.yan.common.security.service.TokenService;
 import com.yan.common.security.utils.SecurityUtils;
 import com.yan.files.utils.StaticGetPrivate;
 import com.yan.system.api.model.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import com.yan.files.mapper.FileReviewMapper;
 import com.yan.files.domain.FileReview;
 import com.yan.files.service.IFileReviewService;
 import org.springframework.util.Base64Utils;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +41,8 @@ public class FileReviewServiceImpl implements IFileReviewService
     @Autowired
     private TokenService tokenService;
 
+    @Value("${host.address}")
+    private String hostAddress;
 
     private static final Charset DEFAULT_CHARSET;
 
@@ -135,27 +134,33 @@ public class FileReviewServiceImpl implements IFileReviewService
     }
 
     @Override
-    public int fileUpload(MultipartFile file, HttpServletRequest httpServletRequest) {
+    public int fileUpload(MultipartFile file, HttpServletRequest httpServletRequest) throws IOException {
         LoginUser loginUser = tokenService.getLoginUser(MethodUtils.getToken(httpServletRequest.getHeader("Authorization")));
-
-        String url = kkAddres + "/fileUpload";
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-        LinkedMultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
-        params.add("file", file.getResource());
-        HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<MultiValueMap<String, Object>>(params, headers);
-        StaticGetPrivate.getResTemplate().exchange(url, HttpMethod.POST, requestEntity, String.class);
+        //获取文件名
+        String fileName = file.getOriginalFilename();
+        //获取文件后缀名
+        String suffixName = fileName.substring(fileName.lastIndexOf("."));
+        //重新生成文件名
+        fileName = UUID.randomUUID() + suffixName;
+        //指定本地文件夹存储
+        String filePath = System.getProperty("user.dir") + File.separator + "files" + File.separator + SecurityUtils.getUsername() + File.separator;
+        File folder = new File(filePath);
+        //判断是否存在文件夹，不存在则新建
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        file.transferTo(new File(filePath + fileName));
 
         FileReview fileReview = new FileReview();
         fileReview.setUserName(loginUser.getUsername());
         fileReview.setTitle(MethodUtils.getFileTitle(file.getOriginalFilename()));
-        fileReview.setName(file.getOriginalFilename());
+        fileReview.setName(fileName);
         fileReview.setVolume(MethodUtils.getFileSize(String.valueOf(file.getSize())));
         fileReview.setType(MethodUtils.getFileType(file.getOriginalFilename()));
-        String url0 = kkAddres + "/demo/" + file.getOriginalFilename();
-        url0 = new String(Base64Utils.encode(url0.getBytes(DEFAULT_CHARSET)), StandardCharsets.UTF_8);
-        fileReview.setUrl(MethodUtils.stringToUrl(url0));
-
+//        String url1 = kkAddres + "/demo/" + file.getOriginalFilename();
+        String url1 = hostAddress + "files/review/download/?fileName=" + fileName + "&fullfilename=" + fileName;
+        url1 = new String(Base64Utils.encode(url1.getBytes(DEFAULT_CHARSET)), StandardCharsets.UTF_8);
+        fileReview.setUrl(MethodUtils.stringToUrl(url1));
         return fileReviewMapper.insertFileReview(fileReview);
     }
 }

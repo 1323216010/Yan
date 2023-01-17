@@ -1,6 +1,7 @@
 package com.yan.files.controller;
 
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import com.yan.files.utils.StaticGetPrivate;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import com.yan.common.log.annotation.Log;
 import com.yan.common.log.enums.BusinessType;
@@ -113,7 +115,7 @@ public class FileReviewController extends BaseController
 
     @ApiOperation("文件上传")
     @PostMapping("/fileUpload")
-    public AjaxResult fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
+    public AjaxResult fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) throws IOException {
         return toAjax(fileReviewService.fileUpload(file, httpServletRequest));
     }
 
@@ -131,5 +133,91 @@ public class FileReviewController extends BaseController
         jsonObject = StaticGetPrivate.getResTemplate().getForObject("https://restapi.amap.com/v3/weather/weatherInfo?city={city}&Key={Key}", JSONObject.class, map);
         JSONArray lives = jsonObject.getJSONArray("lives");
         return success(lives);
+    }
+
+    /**
+     * 通用下载请求
+     *
+     * @param fileName 文件名称
+     */
+    @GetMapping("/download")
+    public void fileDownload(String fileName, HttpServletResponse response)
+    {
+        try
+        {
+            String filePath = System.getProperty("user.dir") + File.separator + "files" + File.separator + fileName;
+            response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
+            StringBuilder contentDispositionValue = new StringBuilder();
+            contentDispositionValue.append("attachment; filename=")
+                    .append(fileName)
+                    .append(";")
+                    .append("filename*=")
+                    .append("utf-8''")
+                    .append(fileName);
+
+            response.addHeader("Access-Control-Expose-Headers", "Content-Disposition,download-filename");
+            response.setHeader("Content-disposition", contentDispositionValue.toString());
+            response.setHeader("download-filename", fileName);
+            writeBytes(filePath, response.getOutputStream());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 输出指定文件的byte数组
+     *
+     * @param filePath 文件路径
+     * @param os 输出流
+     */
+    public static void writeBytes(String filePath, OutputStream os) throws IOException
+    {
+        FileInputStream fis = null;
+        try
+        {
+            File file = new File(filePath);
+            if (!file.exists())
+            {
+                throw new FileNotFoundException(filePath);
+            }
+            fis = new FileInputStream(file);
+            byte[] b = new byte[1024];
+            int length;
+            while ((length = fis.read(b)) > 0)
+            {
+                os.write(b, 0, length);
+            }
+        }
+        catch (IOException e)
+        {
+            throw e;
+        }
+        finally
+        {
+            if (os != null)
+            {
+                try
+                {
+                    os.close();
+                }
+                catch (IOException e1)
+                {
+                    e1.printStackTrace();
+                }
+            }
+            if (fis != null)
+            {
+                try
+                {
+                    fis.close();
+                }
+                catch (IOException e1)
+                {
+                    e1.printStackTrace();
+                }
+            }
+        }
     }
 }

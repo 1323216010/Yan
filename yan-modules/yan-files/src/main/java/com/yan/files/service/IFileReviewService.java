@@ -1,5 +1,6 @@
 package com.yan.files.service;
 
+import java.io.IOException;
 import java.util.List;
 import com.yan.files.domain.FileReview;
 import org.springframework.web.multipart.MultipartFile;
@@ -62,6 +63,6 @@ public interface IFileReviewService
      */
     public int deleteFileReviewById(Long id);
 
-    public int fileUpload(MultipartFile file, HttpServletRequest request);
+    public int fileUpload(MultipartFile file, HttpServletRequest request) throws IOException;
 
 }
