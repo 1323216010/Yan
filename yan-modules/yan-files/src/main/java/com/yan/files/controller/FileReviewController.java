@@ -152,7 +152,7 @@ public class FileReviewController extends BaseController
         LoginUser loginUser = tokenService.getLoginUser(MethodUtils.getToken(request.getHeader("Authorization")));
         try
         {
-            String filePath = System.getProperty("user.dir") + File.separator + "files" + File.separator + loginUser.getUsername() + File.separator;
+            String filePath = System.getProperty("user.dir") + File.separator + "files" + File.separator + loginUser.getUsername() + File.separator + fileName;
             response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
             StringBuilder contentDispositionValue = new StringBuilder();
             contentDispositionValue.append("attachment; filename=")
