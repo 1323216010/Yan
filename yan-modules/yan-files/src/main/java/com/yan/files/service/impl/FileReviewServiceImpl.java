@@ -153,12 +153,13 @@ public class FileReviewServiceImpl implements IFileReviewService
 
         FileReview fileReview = new FileReview();
         fileReview.setUserName(loginUser.getUsername());
+        fileReview.setPath(filePath + fileName);
         fileReview.setTitle(MethodUtils.getFileTitle(file.getOriginalFilename()));
         fileReview.setName(fileName);
         fileReview.setVolume(MethodUtils.getFileSize(String.valueOf(file.getSize())));
         fileReview.setType(MethodUtils.getFileType(file.getOriginalFilename()));
 //        String url1 = kkAddres + "/demo/" + file.getOriginalFilename();
-        String url1 = hostAddress + "files/review/download?fileName=" + fileName + "&fullfilename=" + fileName;
+        String url1 = hostAddress + "files/review/download?fileName=" + fileName + "&filePath=" + filePath.replace(File.separator, "_") + "&fullfilename=" + fileName;
 /*        url1 = new String(Base64Utils.encode(url1.getBytes(DEFAULT_CHARSET)), StandardCharsets.UTF_8);
         fileReview.setUrl(MethodUtils.stringToUrl(url1));*/
         fileReview.setUrl(url1);

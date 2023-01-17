@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
-import com.yan.common.core.utils.MethodUtils;
 import com.yan.common.core.utils.ServletUtils;
 import com.yan.common.core.utils.ip.IpUtils;
-import com.yan.common.security.service.TokenService;
 import com.yan.files.utils.StaticGetPrivate;
-import com.yan.system.api.model.LoginUser;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,9 +41,6 @@ public class FileReviewController extends BaseController
 {
     @Autowired
     private IFileReviewService fileReviewService;
-
-    @Autowired
-    private TokenService tokenService;
 
     @Value("${amap.Key}")
     private String key;
@@ -144,15 +138,14 @@ public class FileReviewController extends BaseController
     /**
      * 通用下载请求
      *
-     * @param fileName 文件名称
+     * @param filePath 文件路径
      */
     @GetMapping("/download")
-    public void fileDownload(String fileName, HttpServletResponse response, HttpServletRequest request)
+    public void fileDownload(@RequestParam("fileName")String fileName, @RequestParam("filePath")String filePath, HttpServletResponse response, HttpServletRequest request)
     {
-        LoginUser loginUser = tokenService.getLoginUser(MethodUtils.getToken(request.getHeader("Authorization")));
         try
         {
-            String filePath = System.getProperty("user.dir") + File.separator + "files" + File.separator + loginUser.getUsername() + File.separator + fileName;
+            filePath = filePath.replace("_", File.separator) + fileName;
             response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
             StringBuilder contentDispositionValue = new StringBuilder();
             contentDispositionValue.append("attachment; filename=")
