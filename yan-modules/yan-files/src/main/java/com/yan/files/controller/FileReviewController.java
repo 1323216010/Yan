@@ -2,6 +2,8 @@ package com.yan.files.controller;
 
 
 import java.io.*;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -141,7 +143,7 @@ public class FileReviewController extends BaseController
      * @param filePath 文件路径
      */
     @GetMapping("/download")
-    public void fileDownload(@RequestParam("fileName")String fileName, @RequestParam("filePath")String filePath, HttpServletResponse response, HttpServletRequest request)
+    public void fileDownload(@RequestParam("fileName")String fileName, @RequestParam("filePath")String filePath,  @RequestParam("title")String title,HttpServletResponse response, HttpServletRequest request)
     {
         try
         {
@@ -149,21 +151,33 @@ public class FileReviewController extends BaseController
             response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
             StringBuilder contentDispositionValue = new StringBuilder();
             contentDispositionValue.append("attachment; filename=")
-                    .append(fileName)
+                    .append(percentEncode(title))
                     .append(";")
                     .append("filename*=")
                     .append("utf-8''")
-                    .append(fileName);
+                    .append(percentEncode(title));
 
             response.addHeader("Access-Control-Expose-Headers", "Content-Disposition,download-filename");
             response.setHeader("Content-disposition", contentDispositionValue.toString());
-            response.setHeader("download-filename", fileName);
+            response.setHeader("download-filename", title);
             writeBytes(filePath, response.getOutputStream());
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 百分号编码工具方法
+     *
+     * @param s 需要百分号编码的字符串
+     * @return 百分号编码后的字符串
+     */
+    public static String percentEncode(String s) throws UnsupportedEncodingException
+    {
+        String encode = URLEncoder.encode(s, StandardCharsets.UTF_8.toString());
+        return encode.replaceAll("\\+", "%20");
     }
 
     /**
