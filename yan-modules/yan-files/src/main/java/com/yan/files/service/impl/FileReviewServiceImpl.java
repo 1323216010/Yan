@@ -114,11 +114,17 @@ public class FileReviewServiceImpl implements IFileReviewService
     {
         for (int i = 0; i < ids.length; i++) {
             FileReview fileReview = fileReviewMapper.selectFileReviewById(ids[i]);
-            Map<String,Object> map = new HashMap<>();
-            map.put("fileName",fileReview.getName());
-            StaticGetPrivate.getResTemplate().getForObject(kkAddres + "/deleteFile" + "?fileName={fileName}",String.class,map);
+            deleteFile(fileReview.getPath());
         }
         return fileReviewMapper.deleteFileReviewByIds(ids);
+    }
+
+    /**
+     * 删除指定文件名文件
+     */
+    public void deleteFile(String path) {
+        File file = new File(path);
+        file.delete();
     }
 
     /**
